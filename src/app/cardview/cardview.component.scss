@@ -1,0 +1,170 @@
+.mainCardView{
+
+}
+.dashboardView{
+    margin-left: -4px;
+    min-height: 700px;
+    height: auto;
+    background-color: #f0f5f4;
+}
+.resultCount{
+    padding: 7px;
+}
+.checkBoxForBlr{
+    float: right;
+    padding: 7px;
+}
+#checkboxFilter{
+    margin-top: 7px;
+    margin-left: -10px;
+    position: absolute;
+    cursor: pointer;
+}
+.cardSection{
+    display: flex;
+    flex-wrap: wrap;
+}
+#card{
+    font-size: 15px;
+    margin-left: 4px;
+}
+.carddetails{
+    height: 380px;
+    width: 289px;
+    background-color: white;
+    border: 1px solid #e2e1e1;
+    margin: 5px 1px 1px 4px;
+}
+.imageDiv{
+    margin: 10px;
+    padding: 25px;
+    width: 90px;
+    height: 90px;
+    border-radius: 50px;
+    background-color: white;
+    border: 1px solid #ccc;
+    img{
+        padding: 0px;
+        margin: -26px;
+        border-radius: 52px;
+    }
+}
+.imageNameDiv{
+    display: flex;
+}
+.nameAndRole{
+    padding: 18px 1px 18px 1px;
+}
+.empName{
+    font-weight: 600;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 117px;
+}
+.empRole{
+    font-size: 14px;
+    opacity: 0.8;
+}
+.checked {
+    color: orange;
+  }
+.fa-star{
+    margin-left: 3px;
+}
+#ratingSection{
+    margin-left: 11px;
+    font-size: 14px;
+    opacity: 0.7;
+}
+.experienceLabel{
+    margin-left: 11px;
+    font-size: 13px;
+    opacity: 0.7;
+    border-right: 2px solid #ccc;
+    width: 137px;
+}
+.dojLabel{
+    margin-left: 4px;
+    font-size: 13px;
+    opacity: 0.7; 
+}
+.currentJobLabel{
+    margin-left: 11px;
+    font-size: 14px;
+    opacity: 0.7;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 263px; 
+}
+.reportingManager{
+    margin-left: 11px;
+    font-size: 14px;
+    opacity: 0.7;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 263px;
+}
+.sendEmailIcon{
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    margin: 14px;
+    height: 31px;
+    width: 31px;
+    cursor: pointer;
+    background-color: white;
+    .fa-paper-plane{
+        margin: 6px;
+    }
+}
+.contactLabel{
+    margin-left: 11px;
+    font-size: 13px;
+    opacity: 0.7;
+    .fa-phone{
+    color: blue;
+    border: 1px solid #ccc;
+    padding: 5px 6px 5px 6px;
+    font-size: 18px;
+    border-radius: 20px;
+    background-color: white;
+    }
+}
+.emailLabel{
+    margin-left: 11px;
+    font-size: 13px;
+    opacity: 0.7;
+    .fa-envelope{
+        color: red;
+        cursor: pointer;
+        border: 1px solid #ccc;
+        padding: 5px 6px 5px 6px;
+        font-size: 18px;
+        border-radius: 20px;
+        background-color: white;
+    }
+    #emailLabelWithEllip{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 105px;
+        margin-top: 6px;
+        position: absolute;
+    }
+}
+.filterIsThere{
+    width: 900px;
+    margin: -761px 0px 0px 294px;
+}
+.closeFilter{
+    position: absolute;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 2px 10px 2px 10px;
+    background-color: white;
+    font-size: 20px;
+    margin: 7px 0px 0px -22px;
+}

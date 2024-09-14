@@ -1,0 +1,42 @@
+<main class="col-md-12 ms-sm-auto col-lg-12 px-md-0 mainCardView">
+    <div class="pt-1">
+      <div class="dashboardView" [ngClass]="showFilter? 'filterIsThere': ''">
+        <label class="resultCount">{{employeeDetails.length}} Results Found </label>
+        <span class="checkBoxForBlr"><input type="checkbox" [(ngModel)]="checkForCity" id="checkboxFilter" (click)="filterDataForBlrEmp(!checkForCity)" />&nbsp;&nbsp;<label>Show only Bangalore Employees</label></span>
+        <div class="cardSection">
+        <div id="card" *ngFor="let emp of employeeDetails">
+            <div class="carddetails">
+            <div class="imageNameDiv">
+                <div class="imageDiv">
+                    <img class="image" width="90" height="90" src="{{emp.empImage}}" alt="No Photo"/>
+                </div>
+                <div class="nameAndRole">
+                    <p class="empName">{{emp.name}}</p>
+                    <p class="empRole">{{emp.role}}</p>
+                </div>
+                <div class="sendEmailIcon">
+                    <i class="fa fa-paper-plane" title="Send mail" (click)="openMailto(emp.email)" aria-hidden="true"></i>
+                </div>
+            </div>
+            <p id="ratingSection">{{emp.rating}} Rating  
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span></p>
+            <hr>
+            <label class="experienceLabel">Experience: {{emp.experience}} Years</label>
+            <label class="dojLabel">Data of Joining: {{emp.doj}}</label>
+            <hr>
+            <label class="currentJobLabel">Current Team: {{emp.currentTeam}}</label>
+            <hr>
+            <label class="reportingManager">Reporting Manager: {{emp.reportingManager}}</label>
+            <hr>
+            <label class="contactLabel"><i class="fa fa-phone" aria-hidden="true"></i> &nbsp;{{emp.contactNumber}}</label>
+            <label class="emailLabel"><i class="fa fa-envelope" title="Copy mail Id" (click)="copyEmail(emp.email)" aria-hidden="true"></i>&nbsp;<label id="emailLabelWithEllip">{{emp.email}}</label></label>
+        </div>
+      </div>  
+    </div>
+    </div>
+    </div>
+  </main>

@@ -1,0 +1,102 @@
+<nav class="navbar navbar-light bg-light border-bottom-0">
+  <button class="navbar-toggler d-block d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar"
+    aria-controls="sidebar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+</nav>
+
+<div class="offcanvas offcanvas-start bg-light d-md-block" tabindex="-1" id="sidebar" aria-labelledby="sidebarLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title text-success" id="sidebarLabel">Infrrd</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close">
+    </button>
+  </div>
+  <div class="offcanvas-body">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link active text-success" href="overview">Overview</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-success" href="message">Messages</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-success" href="search">Search</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-success" href="filter">Filter</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-success" href="history">History</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-success" href="myaccount">My Account</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-none d-md-block bg-light sidebar">
+      <div class="position-sticky bg-light vh-100">
+        <div class="pt-3"> <img style="margin: 0px 0px 16px 12px;" height="30" width="100" src="https://cdn.prod.website-files.com/64134591aea9175754d2b969/64141daf1251e368265da841_logo-black.png" >
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link text-success active" href="overview">  <i class="fa fa-id-card-o" aria-hidden="true"></i> Overview</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-success" (click)="openMessage()" href="message"><i class="fa fa-envelope-o" aria-hidden="true"></i> Messages <label *ngIf="messageCount>99" class="messageCount">99+</label> <label *ngIf="messageCount<99" class="messageCount">{{messageCount}}</label></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-success" (click)="openSearch()" href="search"><i class="fa fa-search" aria-hidden="true"></i> Search</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-success" (click)="openFilter()" ><i class="fa fa-filter" aria-hidden="true"></i> Filter</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-success" (click)="openHistory()" href="history"><i class="fa fa-history" aria-hidden="true"></i> History</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-success" (click)="openMyAccount()" href="myaccount"><i class="fa fa-user" aria-hidden="true"></i> My Account</a>
+            </li>
+              <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+              <li class="nav-item">
+                <a class="nav-link text-success" href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> Get Help</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-success" href="#"><i class="fa fa-sign-out" aria-hidden="true"></i> Sign Out</a>
+                  </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <main class="col-md-10 ms-sm-auto col-lg-10 px-md-1">
+      <div class="pt-1">
+        <div class="notificationAndDropDown">
+          <div class="chooseTeam"> 
+            <i class="fa fa-users" aria-hidden="true"></i>
+            <select class="dropDownList" [(ngModel)]="selectedTeam">
+              <option value="chooseTeam">Choose Team</option>
+              <option value="productTeam">Product Team</option>
+              <option value="idc">IDC</option>
+              <option value="ocbc">OCBC</option>
+              <option value="radian">Radian</option>
+              <option value="rustify">Rustify</option>
+            </select>
+          </div> 
+          <div class="notificationSection">
+            <i class="fa fa-bell-o" aria-hidden="true"></i>
+            <label class="notificationCount">{{notificationCount}}</label>
+          </div>
+        </div>
+      </div>
+      <main class="col-md-3 col-lg-3 px-md-1" *ngIf="showFilterSection" id="filterDiv">
+        <div class="pt-1">
+          <app-filter-component></app-filter-component>
+        </div>
+      </main>
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>
