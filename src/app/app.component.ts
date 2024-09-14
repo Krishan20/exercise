@@ -21,9 +21,27 @@ export class AppComponent {
 
   isOverviewClicked = true;
   isMessageClicked = false;
+  isSearchClicked = false;
+  isFilterClicked = false;
+  isHistoryClicked = false;
+  isMyAccount = false;
   showFilterSection= false;
 
+  overviewClicked(){
+    this.isMessageClicked = false;
+    this.isOverviewClicked = true;
+    this.isSearchClicked = false;
+    this.isFilterClicked = false;
+    this.isHistoryClicked = false;
+    this.isMyAccount = false;
+  }
   openFilter(){
+    this.isMessageClicked = false;
+    this.isOverviewClicked = false;
+    this.isSearchClicked = false;
+    this.isFilterClicked = true;
+    this.isHistoryClicked = false;
+    this.isMyAccount = false;
     this.commonService.setFilterFlag(true);
   }
   closeFilterSection(){
@@ -31,14 +49,38 @@ export class AppComponent {
   }
   openMessage(){
     this.commonService.setFilterFlag(false);
+    this.isMessageClicked = true;
+    this.isOverviewClicked = false;
+    this.isSearchClicked = false;
+    this.isFilterClicked = false;
+    this.isHistoryClicked = false;
+    this.isMyAccount = false;
   }
   openSearch(){
+    this.isMessageClicked = false;
+    this.isOverviewClicked = false;
+    this.isSearchClicked = true;
+    this.isFilterClicked = false;
+    this.isHistoryClicked = false;
+    this.isMyAccount = false;
     this.commonService.setFilterFlag(false);
   }
   openHistory(){
+    this.isMessageClicked = false;
+    this.isOverviewClicked = false;
+    this.isSearchClicked = false;
+    this.isFilterClicked = false;
+    this.isHistoryClicked = true;
+    this.isMyAccount = false;
     this.commonService.setFilterFlag(false);
   }
   openMyAccount(){
+    this.isMessageClicked = false;
+    this.isOverviewClicked = false;
+    this.isSearchClicked = false;
+    this.isFilterClicked = false;
+    this.isHistoryClicked = false;
+    this.isMyAccount = true;
     this.commonService.setFilterFlag(false);
   }
 }

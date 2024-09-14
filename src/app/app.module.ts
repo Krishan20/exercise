@@ -7,11 +7,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { FilterComponentComponent } from './filter-component/filter-component.component';
+import { WorkinprogressComponent } from './workinprogress/workinprogress.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent, FilterComponentComponent
+    AppComponent, FilterComponentComponent, WorkinprogressComponent
   ],
   imports: [
     BrowserModule,

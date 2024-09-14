@@ -42,22 +42,22 @@
         <div class="pt-3"> <img style="margin: 0px 0px 16px 12px;" height="30" width="100" src="https://cdn.prod.website-files.com/64134591aea9175754d2b969/64141daf1251e368265da841_logo-black.png" >
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link text-success active" href="overview">  <i class="fa fa-id-card-o" aria-hidden="true"></i> Overview</a>
+              <a class="nav-link text-success" [ngClass]="isOverviewClicked? 'active': '' " (click)="overviewClicked()" [routerLink]="'overview'">  <i class="fa fa-id-card-o" aria-hidden="true"></i> Overview</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-success" (click)="openMessage()" href="message"><i class="fa fa-envelope-o" aria-hidden="true"></i> Messages <label *ngIf="messageCount>99" class="messageCount">99+</label> <label *ngIf="messageCount<99" class="messageCount">{{messageCount}}</label></a>
+              <a class="nav-link text-success" [ngClass]="isMessageClicked? 'active': '' " id="messageLink" (click)="openMessage()" [routerLink]="'message'"><i class="fa fa-envelope-o" aria-hidden="true"></i> Messages <label *ngIf="messageCount>99" class="messageCount">99+</label> <label *ngIf="messageCount<99" class="messageCount">{{messageCount}}</label></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-success" (click)="openSearch()" href="search"><i class="fa fa-search" aria-hidden="true"></i> Search</a>
+              <a class="nav-link text-success" [ngClass]="isSearchClicked? 'active': '' " (click)="openSearch()" [routerLink]="'search'"><i class="fa fa-search" aria-hidden="true"></i> Search</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-success" (click)="openFilter()" ><i class="fa fa-filter" aria-hidden="true"></i> Filter</a>
+              <a class="nav-link text-success" [ngClass]="isFilterClicked? 'active': '' " (click)="openFilter()" ><i class="fa fa-filter" aria-hidden="true"></i> Filter</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-success" (click)="openHistory()" href="history"><i class="fa fa-history" aria-hidden="true"></i> History</a>
+              <a class="nav-link text-success" [ngClass]="isHistoryClicked? 'active': '' " (click)="openHistory()" [routerLink]="'history'"><i class="fa fa-history" aria-hidden="true"></i> History</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-success" (click)="openMyAccount()" href="myaccount"><i class="fa fa-user" aria-hidden="true"></i> My Account</a>
+              <a class="nav-link text-success" [ngClass]="isMyAccount? 'active': '' " (click)="openMyAccount()" [routerLink]="'myaccount'"><i class="fa fa-user" aria-hidden="true"></i> My Account</a>
             </li>
               <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
               <li class="nav-item">
