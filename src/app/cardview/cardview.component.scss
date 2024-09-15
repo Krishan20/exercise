@@ -190,6 +190,12 @@
        label{
         margin: 2px;
        }
+       label::after{
+        content: "*";
+        color: red;
+        margin: -8px 0px 0px 4px;
+        position: absolute;
+       }
        .nameClass{
         margin-left: 114px;
        }
@@ -224,6 +230,10 @@
         button{
             border: 2px solid green;
             width: 87px;
+        }
+        .disabled{
+            opacity: 0.4;
+            cursor: not-allowed;
         }
     }
 }

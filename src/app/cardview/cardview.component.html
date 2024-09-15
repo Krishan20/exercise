@@ -19,7 +19,7 @@
                     </div>
                     <div class="buttonDivForNewEmp">
                         <button class="text-success" (click)="closeAddNewEmp()">Cancel</button> &nbsp;
-                        <button class="text-success" (click)="addAndCloseNewEmp()">Save</button>
+                        <button class="text-success" (click)="addAndCloseNewEmp()" [ngClass]="(!newEmpEntry.name || !newEmpEntry.role || !newEmpEntry.rating || !newEmpEntry.experience || !newEmpEntry.doj || !newEmpEntry.currentTeam || !newEmpEntry.contactNumber || !newEmpEntry.email)? 'disabled': ''" >Save</button>
                     </div>
             
                 </div>
