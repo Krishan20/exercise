@@ -2,7 +2,29 @@
     <div class="pt-1">
       <div class="dashboardView" [ngClass]="showFilter? 'filterIsThere': ''">
         <label class="resultCount">{{employeeDetails.length}} Results Found </label>
-        <span class="checkBoxForBlr"><input type="checkbox" [(ngModel)]="checkForCity" id="checkboxFilter" (click)="filterDataForBlrEmp(!checkForCity)" />&nbsp;&nbsp;<label>Show only Bangalore Employees</label></span>
+        <span class="checkBoxForBlr"> <i class="fa fa-plus text-success" aria-hidden="true" style="cursor: pointer;" (click)="addNewEmp()"></i><span class="addNewLAbel">Add New Employee </span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="checkbox" [(ngModel)]="checkForCity" id="checkboxFilter" (click)="filterDataForBlrEmp(!checkForCity)" />&nbsp;&nbsp;<label>Show only Bangalore Employees</label></span>
+            <form *ngIf="showAddPopup">
+                <div class="formMainDiv">
+                    <label class="addNewEmpLabel">Add New Employee</label>
+                    <div class="detailsDiv">
+                        <label>Name: <input [(ngModel)]="newEmpEntry.name" class="nameClass" name="name" /></label>
+                        <label>Designation: <input [(ngModel)]="newEmpEntry.role" class="desiClass" name="desig" /></label>
+                        <label>Rating: <input [(ngModel)]="newEmpEntry.rating" class="ratingClass" name="desig" /></label>
+                        <label>Experience: <input [(ngModel)]="newEmpEntry.experience" class="expClass" name="exp" /></label>
+                        <label>Date Of Joining: <input  [(ngModel)]="newEmpEntry.doj" class="dojClass" name="doj" /></label>
+                        <label>Current Team: <input [(ngModel)]="newEmpEntry.currentTeam" class="currTeamClass" name="cuTeam" /></label>
+                        <label>Mobile: <input [(ngModel)]="newEmpEntry.contactNumber" class="mobileClass" name="mobile" /></label>
+                        <label>Mail: <input [(ngModel)]="newEmpEntry.email" class="mailClass" name="mail" /></label>
+                    </div>
+                    <div class="buttonDivForNewEmp">
+                        <button class="text-success" (click)="closeAddNewEmp()">Cancel</button> &nbsp;
+                        <button class="text-success" (click)="addAndCloseNewEmp()">Save</button>
+                    </div>
+            
+                </div>
+            
+              </form>
         <div class="cardSection">
         <div id="card" *ngFor="let emp of employeeDetails">
             <div class="carddetails">
@@ -17,12 +39,13 @@
                 <div class="sendEmailIcon">
                     <i class="fa fa-paper-plane" title="Send mail" (click)="openMailto(emp.email)" aria-hidden="true"></i>
                 </div>
+                <div class="deleteRecord" (click)="deleteRecordFromView(emp)"><p>x</p></div>
             </div>
             <p id="ratingSection">{{emp.rating}} Rating  
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
+                <span class="fa fa-star checked"></span>
                 <span class="fa fa-star"></span></p>
             <hr>
             <label class="experienceLabel">Experience: {{emp.experience}} Years</label>

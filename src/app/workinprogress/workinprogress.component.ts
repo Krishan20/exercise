@@ -10,9 +10,14 @@ export class WorkinprogressComponent {
   constructor(private commonService:CommonService){}
 
   showFilter: boolean = false;
+  pendingTabText: string = "";
   ngOnInit(): void {
     this.commonService.getFilterFlag().subscribe((res)=>{
       this.showFilter = res;
+    })
+
+    this.commonService.getPendingTabText().subscribe((res)=>{
+      this.pendingTabText = res;
     })
     
   }

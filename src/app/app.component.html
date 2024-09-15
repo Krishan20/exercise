@@ -1,3 +1,4 @@
+<div class="addNewForm" *ngIf="showAddPopup"></div>
 <nav class="navbar navbar-light bg-light border-bottom-0">
   <button class="navbar-toggler d-block d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar"
     aria-controls="sidebar">
@@ -14,23 +15,30 @@
   <div class="offcanvas-body">
     <ul class="nav flex-column">
       <li class="nav-item">
-        <a class="nav-link active text-success" href="overview">Overview</a>
+        <a class="nav-link text-success" [ngClass]="isOverviewClicked? 'active': '' " (click)="overviewClicked()" [routerLink]="'overview'">  <i class="fa fa-id-card-o" aria-hidden="true"></i> Overview</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-success" href="message">Messages</a>
+        <a class="nav-link text-success" [ngClass]="isMessageClicked? 'active': '' " id="messageLink" (click)="openMessage()" [routerLink]="'message'"><i class="fa fa-envelope-o" aria-hidden="true"></i> Messages <label *ngIf="messageCount>99" class="messageCount">99+</label> <label *ngIf="messageCount<99" class="messageCount">{{messageCount}}</label></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-success" href="search">Search</a>
+        <a class="nav-link text-success" [ngClass]="isSearchClicked? 'active': '' " (click)="openSearch()" [routerLink]="'search'"><i class="fa fa-search" aria-hidden="true"></i> Search</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-success" href="filter">Filter</a>
+        <a class="nav-link text-success" style="cursor: pointer;" [ngClass]="isFilterClicked? 'active': '' " (click)="openFilter()" ><i class="fa fa-filter" aria-hidden="true"></i> Filter</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-success" href="history">History</a>
+        <a class="nav-link text-success" [ngClass]="isHistoryClicked? 'active': '' " (click)="openHistory()" [routerLink]="'history'"><i class="fa fa-history" aria-hidden="true"></i> History</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-success" href="myaccount">My Account</a>
+        <a class="nav-link text-success" [ngClass]="isMyAccount? 'active': '' " (click)="openMyAccount()" [routerLink]="'myaccount'"><i class="fa fa-user" aria-hidden="true"></i> My Account</a>
       </li>
+        <br><br>
+        <li class="nav-item">
+          <a class="nav-link text-success" href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> Get Help</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-success" href="#"><i class="fa fa-sign-out" aria-hidden="true"></i> Sign Out</a>
+            </li>
     </ul>
   </div>
 </div>
@@ -39,25 +47,25 @@
   <div class="row">
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-none d-md-block bg-light sidebar">
       <div class="position-sticky bg-light vh-100">
-        <div class="pt-3"> <img style="margin: 0px 0px 16px 12px;" height="30" width="100" src="https://cdn.prod.website-files.com/64134591aea9175754d2b969/64141daf1251e368265da841_logo-black.png" >
+        <div class="pt-3"> <img style="margin: 0px 0px 16px 12px; cursor: pointer;" title="Go to Overview" height="30" (click)="goHome()" width="100" src="https://cdn.prod.website-files.com/64134591aea9175754d2b969/64141daf1251e368265da841_logo-black.png" >
           <ul class="nav flex-column">
             <li class="nav-item">
               <a class="nav-link text-success" [ngClass]="isOverviewClicked? 'active': '' " (click)="overviewClicked()" [routerLink]="'overview'">  <i class="fa fa-id-card-o" aria-hidden="true"></i> Overview</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-success" [ngClass]="isMessageClicked? 'active': '' " id="messageLink" (click)="openMessage()" [routerLink]="'message'"><i class="fa fa-envelope-o" aria-hidden="true"></i> Messages <label *ngIf="messageCount>99" class="messageCount">99+</label> <label *ngIf="messageCount<99" class="messageCount">{{messageCount}}</label></a>
+              <a class="nav-link text-success" title="View all messages" [ngClass]="isMessageClicked? 'active': '' " id="messageLink" (click)="openMessage()" [routerLink]="'message'"><i class="fa fa-envelope-o" aria-hidden="true"></i> Messages <label *ngIf="messageCount>99" class="messageCount">99+</label> <label *ngIf="messageCount<99" class="messageCount">{{messageCount}}</label></a>
             </li>
             <li class="nav-item">
               <a class="nav-link text-success" [ngClass]="isSearchClicked? 'active': '' " (click)="openSearch()" [routerLink]="'search'"><i class="fa fa-search" aria-hidden="true"></i> Search</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-success" [ngClass]="isFilterClicked? 'active': '' " (click)="openFilter()" ><i class="fa fa-filter" aria-hidden="true"></i> Filter</a>
+              <a class="nav-link text-success" style="cursor: pointer;" [ngClass]="isFilterClicked? 'active': '' " (click)="openFilter()" ><i class="fa fa-filter" aria-hidden="true"></i> Filter</a>
             </li>
             <li class="nav-item">
               <a class="nav-link text-success" [ngClass]="isHistoryClicked? 'active': '' " (click)="openHistory()" [routerLink]="'history'"><i class="fa fa-history" aria-hidden="true"></i> History</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-success" [ngClass]="isMyAccount? 'active': '' " (click)="openMyAccount()" [routerLink]="'myaccount'"><i class="fa fa-user" aria-hidden="true"></i> My Account</a>
+              <a class="nav-link text-success" [ngClass]="isMyAccount? 'active': '' " (click)="openMyAccount()" [routerLink]="'myAccount'"><i class="fa fa-user" aria-hidden="true"></i> My Account</a>
             </li>
               <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
               <li class="nav-item">
@@ -66,7 +74,6 @@
                 <li class="nav-item">
                   <a class="nav-link text-success" href="#"><i class="fa fa-sign-out" aria-hidden="true"></i> Sign Out</a>
                   </li>
-
           </ul>
         </div>
       </div>
@@ -85,7 +92,7 @@
               <option value="rustify">Rustify</option>
             </select>
           </div> 
-          <div class="notificationSection">
+          <div class="notificationSection" title="View all notifications">
             <i class="fa fa-bell-o" aria-hidden="true"></i>
             <label class="notificationCount">{{notificationCount}}</label>
           </div>

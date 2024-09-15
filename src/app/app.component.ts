@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonService } from './commonService';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,12 +8,16 @@ import { CommonService } from './commonService';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(private commonService:CommonService){}
+  constructor(private commonService:CommonService, private router: Router){}
   ngOnInit(): void {
     this.commonService.getFilterFlag().subscribe((res)=>{
       this.showFilterSection = res;
     })
+    this.commonService.getHideHoleContent().subscribe((res)=>{
+      this.showAddPopup = res;
+    })
   }
+  showAddPopup = false;
   title = 'infrrdDashboard';
   notificationCount = 22;
   messageCount = 120
@@ -28,6 +33,7 @@ export class AppComponent {
   showFilterSection= false;
 
   overviewClicked(){
+    this.commonService.setFilterFlag(false);
     this.isMessageClicked = false;
     this.isOverviewClicked = true;
     this.isSearchClicked = false;
@@ -48,6 +54,7 @@ export class AppComponent {
     this.commonService.setFilterFlag(false);
   }
   openMessage(){
+    this.commonService.setPendingTabText("Message");
     this.commonService.setFilterFlag(false);
     this.isMessageClicked = true;
     this.isOverviewClicked = false;
@@ -64,6 +71,7 @@ export class AppComponent {
     this.isHistoryClicked = false;
     this.isMyAccount = false;
     this.commonService.setFilterFlag(false);
+    this.commonService.setPendingTabText("Search");
   }
   openHistory(){
     this.isMessageClicked = false;
@@ -73,6 +81,7 @@ export class AppComponent {
     this.isHistoryClicked = true;
     this.isMyAccount = false;
     this.commonService.setFilterFlag(false);
+    this.commonService.setPendingTabText("History");
   }
   openMyAccount(){
     this.isMessageClicked = false;
@@ -82,5 +91,10 @@ export class AppComponent {
     this.isHistoryClicked = false;
     this.isMyAccount = true;
     this.commonService.setFilterFlag(false);
+    this.commonService.setPendingTabText("My Account");
+  }
+  goHome(){
+    this.commonService.setFilterFlag(false);
+    this.router.navigate(["overview"]);
   }
 }

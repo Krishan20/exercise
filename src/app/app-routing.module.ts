@@ -5,7 +5,7 @@ import { WorkinprogressComponent } from './workinprogress/workinprogress.compone
 
 export const routes: Routes = [
   { path: '', component: CardviewComponent},
-  {path: 'overview', component: CardviewComponent},
+  {path: 'overview', component: CardviewComponent, pathMatch:"full"},
   {path: 'message', component: WorkinprogressComponent},
   {path: 'search', component: WorkinprogressComponent},
   {path: 'filter', component: WorkinprogressComponent},

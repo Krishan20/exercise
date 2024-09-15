@@ -31,6 +31,7 @@
 .carddetails{
     height: 380px;
     width: 289px;
+    border-radius: 10px;
     background-color: white;
     border: 1px solid #e2e1e1;
     margin: 5px 1px 1px 4px;
@@ -111,7 +112,7 @@
 .sendEmailIcon{
     border-radius: 20px;
     border: 1px solid #ccc;
-    margin: 14px;
+    margin: 14px 0px 0px 10px;
     height: 31px;
     width: 31px;
     cursor: pointer;
@@ -167,4 +168,74 @@
     background-color: white;
     font-size: 20px;
     margin: 7px 0px 0px -22px;
+}
+.fa-plus{
+    margin-right: 5px;
+}
+.addNewLAbel{
+    border-right: 2px solid #0cbe50;
+    margin-right: -5px;
+}
+.formMainDiv{
+    width: 450px;
+    height: 380px;
+    background-color: white;
+    border: 1px solid #969090;
+    position: absolute;
+    left: 40%;
+    border-radius: 10px;
+    z-index: 15;
+    .detailsDiv{
+       padding: 0px 10px 11px 50px;
+       label{
+        margin: 2px;
+       }
+       .nameClass{
+        margin-left: 114px;
+       }
+       .desiClass{
+        margin-left: 71px;
+       }
+       .ratingClass{
+        margin-left: 111px;
+       }
+       .expClass{
+        margin-left: 77px;
+       }
+       .dojClass{
+        margin-left: 45px;
+       }
+       .currTeamClass{
+        margin-left: 59px;
+       }
+       .mobileClass{
+        margin-left: 109px;
+       }
+       .mailClass{
+        margin-left: 128px;
+       }
+
+    }
+    .addNewEmpLabel{
+        margin: 10px 10px 10px 15px;
+    }
+    .buttonDivForNewEmp{
+        margin: 4px 0px 0px 241px;
+        button{
+            border: 2px solid green;
+            width: 87px;
+        }
+    }
+}
+.deleteRecord{
+    margin: 1px 0px 0px -2px;
+    border: 1px solid red;
+    height: 17px;
+    border-radius: 30px;
+    padding: 4px;
+    background-color: red;
+    p{
+        margin-top: -9px;
+        color: white;
+    }
 }
