@@ -1,0 +1,25 @@
+.loginDiv{
+    background-color: #3a0505;
+    width: 428px;
+    height: auto;
+    padding: 20px 20px 20px 20px;
+    border-radius: 10px;
+    position: absolute;
+    z-index: 20;
+    margin: 8% 0% 0% 36%;
+    color: white;
+    .loginDivSection{
+        margin: 20px 20px 30px 20px;
+    }
+    .button{
+        button{
+            float: right;
+            margin-right: 35px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            width: 70px;
+            height: 32px;
+            border: 1px solid #cccc;
+        }
+    }
+}

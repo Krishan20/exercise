@@ -1,4 +1,6 @@
 <div class="addNewForm" *ngIf="showAddPopup"></div>
+<app-login-page></app-login-page>
+<div class="appComponentSeection" *ngIf="!showAddPopup">
 <nav class="navbar navbar-light bg-light border-bottom-0">
   <button class="navbar-toggler d-block d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar"
     aria-controls="sidebar">
@@ -37,7 +39,7 @@
           <a class="nav-link text-success" href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> Get Help</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-success" href="#"><i class="fa fa-sign-out" aria-hidden="true"></i> Sign Out</a>
+            <a class="nav-link text-success" (click)="logInAgain()" href="login"><i class="fa fa-sign-out" aria-hidden="true"></i> Sign Out</a>
             </li>
     </ul>
   </div>
@@ -106,4 +108,5 @@
       <router-outlet></router-outlet>
     </main>
   </div>
+</div>
 </div>

@@ -97,4 +97,7 @@ export class AppComponent {
     this.commonService.setFilterFlag(false);
     this.router.navigate(["overview"]);
   }
+  logInAgain(){
+    window.location.href = "http://localhost:4200/login";
+  }
 }

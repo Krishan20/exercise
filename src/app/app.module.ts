@@ -8,11 +8,12 @@ import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { FilterComponentComponent } from './filter-component/filter-component.component';
 import { WorkinprogressComponent } from './workinprogress/workinprogress.component';
+import { LoginPageComponent } from './login-page/login-page.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent, FilterComponentComponent, WorkinprogressComponent
+    AppComponent, FilterComponentComponent, WorkinprogressComponent, LoginPageComponent
   ],
   imports: [
     BrowserModule,
